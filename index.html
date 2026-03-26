@@ -139,42 +139,30 @@
       margin-bottom: 32px;
       max-width: 600px;
     }
-    .hero__layout {
-      display: flex;
-      flex-direction: column;
-      gap: 44px;
-      align-items: flex-start;
-    }
-    .hero__copy { flex: 1; }
-    .hero__product {
-      flex: 0 0 auto;
+    .hero__vsl {
       width: 100%;
+      max-width: 640px;
+      margin: 0 0 32px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #1c1c1c;
+      aspect-ratio: 16/9;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 14px;
+      justify-content: center;
+      gap: 10px;
     }
-    .hero__product-img {
-      width: 220px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(51,43,37,0.18);
+    .hero__vsl-play {
+      font-size: 52px;
+      color: rgba(255,255,255,0.35);
+      line-height: 1;
     }
-    .hero__price-tag {
-      background: var(--green);
-      color: var(--white);
-      border-radius: 10px;
-      padding: 12px 24px;
-      text-align: center;
-      min-width: 160px;
-    }
-    .hero__price-tag .was { font-size: 13px; opacity: 0.75; font-style: italic; }
-    .hero__price-tag .now {
-      font-family: 'Raleway', sans-serif;
-      font-weight: 800;
-      font-size: 30px;
-      line-height: 1.1;
-      margin-top: 2px;
+    .hero__vsl-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
     .hero__secure-line {
       font-size: 13px;
@@ -183,11 +171,6 @@
       display: flex;
       align-items: center;
       gap: 6px;
-    }
-
-    @media (min-width: 620px) {
-      .hero__layout { flex-direction: row; align-items: flex-start; gap: 52px; }
-      .hero__product { width: auto; min-width: 220px; }
     }
 
     /* ── PAIN CARDS ───────────────────────────────────────────── */
@@ -547,41 +530,23 @@
 <!-- ── HERO ───────────────────────────────────────────────────────── -->
 <section class="hero">
   <div class="container">
-    <div class="hero__layout">
-
-      <div class="hero__copy">
-        <div class="hero__pre">For home gardeners ready to grow their own food</div>
-        <h1 class="hero__headline">
-          Grow <em>$2,000 Worth of Food</em><br>From Your Backyard This Season
-        </h1>
-        <p class="hero__sub">
-          The exact 23-page plan Paul used to harvest <strong>$2,030.85 in real food</strong> from a 20x15 ft backyard garden. It includes the succession planting system that keeps your garden producing long after everyone else's has stopped. Works even with crop failures built in.
-        </p>
-        <a href="#order" class="btn btn--inline">Get Instant Access for $17</a>
-        <p class="hero__secure-line">
-          <span>🔒</span>
-          <span>Secure checkout &nbsp;·&nbsp; Instant digital delivery</span>
-        </p>
-      </div>
-
-      <div class="hero__product">
-        <!--
-          IMAGE SLOT 1: Replace src with "images/hero-scene.png" after fal.ai generation.
-          Run: python generate_images.py (set FAL_KEY first)
-        -->
-        <img
-          class="hero__product-img"
-          src="images/hero-scene.png"
-          id="img-hero"
-          alt="$2,000 Plug and Play Garden Plan, 23-page PDF"
-        >
-        <div class="hero__price-tag">
-          <div class="was">Previously free for workshop attendees only</div>
-          <div class="now">$17 today</div>
-        </div>
-      </div>
-
+    <div class="hero__pre">For home gardeners ready to grow their own food</div>
+    <h1 class="hero__headline">
+      Grow <em>$2,000 Worth of Food</em><br>From Your Backyard This Season
+    </h1>
+    <p class="hero__sub">
+      The exact 23-page plan Paul used to harvest <strong>$2,030.85 in real food</strong> from a 20x15 ft backyard garden. It includes the succession planting system that keeps your garden producing long after everyone else's has stopped. Works even with crop failures built in.
+    </p>
+    <!-- VSL PLACEHOLDER — replace with embed code before launch -->
+    <div class="hero__vsl">
+      <div class="hero__vsl-play">▶</div>
+      <div class="hero__vsl-label">Video goes here</div>
     </div>
+    <a href="#order" class="btn btn--inline">Get Instant Access for $17</a>
+    <p class="hero__secure-line">
+      <span>🔒</span>
+      <span>Secure checkout &nbsp;·&nbsp; Instant digital delivery</span>
+    </p>
   </div>
 </section>
 
