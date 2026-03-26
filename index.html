@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The $2,000 Plug &amp; Play Garden Plan — Seedtime</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── BRAND TOKENS ─────────────────────────────────────────── */
+    :root {
+      --green:       #79C048;
+      --green-dark:  #5E9834;
+      --brown:       #332B25;
+      --brown-warm:  #413E3C;
+      --brown-mid:   #786658;
+      --gold:        #FFCE50;
+      --gold-dark:   #E5B948;
+      --gray-dark:   #A1A1A1;
+      --gray-light:  #DBDBDB;
+      --bg:          #F6F5F3;
+      --white:       #FFFFFF;
+    }
+
+    /* ── RESET ────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: var(--brown);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--green); text-decoration: none; }
+
+    /* ── TYPOGRAPHY ───────────────────────────────────────────── */
+    h1, h2, h3, h4 {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--brown);
+    }
+    h1 { font-size: clamp(26px, 5.5vw, 48px); }
+    h2 { font-size: clamp(22px, 4vw, 36px); }
+    h3 { font-size: clamp(18px, 3vw, 26px); }
+    h4 { font-size: 18px; font-weight: 700; }
+    p  { font-size: 16px; line-height: 1.75; }
+
+    /* ── LAYOUT ───────────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .section        { padding: 64px 0; }
+    .section--alt   { background: var(--white); }
+    .section--dark  { background: var(--brown); }
+    .section--dark h2,
+    .section--dark h3,
+    .section--dark h4 { color: var(--white); }
+
+    /* ── BUTTONS ──────────────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      padding: 18px 40px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+      line-height: 1.3;
+      text-decoration: none;
+      width: 100%;
+    }
+    .btn:hover { background: var(--green-dark); color: var(--white); }
+    .btn--inline { width: auto; }
+
+    /* ── URGENCY BAR ──────────────────────────────────────────── */
+    .urgency-bar {
+      background: var(--green);
+      color: var(--white);
+      text-align: center;
+      padding: 12px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .urgency-bar strong { font-weight: 700; }
+
+    /* ── WORDMARK BAR ─────────────────────────────────────────── */
+    .wordmark-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-light);
+      padding: 14px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    .wordmark-bar img { width: 28px; height: 28px; object-fit: contain; }
+    .wordmark-bar__text {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--brown);
+    }
+
+    /* ── HERO ─────────────────────────────────────────────────── */
+    .hero { padding: 56px 0 48px; background: var(--bg); }
+
+    .hero__pre {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .hero__headline { margin-bottom: 20px; }
+    .hero__headline em { font-style: normal; color: var(--green); }
+    .hero__sub {
+      font-size: 18px;
+      color: var(--brown-warm);
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+    .hero__layout {
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+      align-items: flex-start;
+    }
+    .hero__copy { flex: 1; }
+    .hero__product {
+      flex: 0 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .hero__product-img {
+      width: 220px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(51,43,37,0.18);
+    }
+    .hero__price-tag {
+      background: var(--green);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 12px 24px;
+      text-align: center;
+      min-width: 160px;
+    }
+    .hero__price-tag .was { font-size: 13px; opacity: 0.75; font-style: italic; }
+    .hero__price-tag .now {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 30px;
+      line-height: 1.1;
+      margin-top: 2px;
+    }
+    .hero__secure-line {
+      font-size: 13px;
+      color: var(--gray-dark);
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media (min-width: 620px) {
+      .hero__layout { flex-direction: row; align-items: flex-start; gap: 52px; }
+      .hero__product { width: auto; min-width: 220px; }
+    }
+
+    /* ── PAIN CARDS ───────────────────────────────────────────── */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 36px;
+    }
+    @media (min-width: 520px) { .pain-grid { grid-template-columns: 1fr 1fr; } }
+
+    .pain-card {
+      background: var(--bg);
+      border: 1.5px solid var(--gray-light);
+      border-radius: 12px;
+      padding: 22px 20px;
+    }
+    .pain-card__icon { font-size: 26px; margin-bottom: 10px; }
+    .pain-card h4 { font-size: 15px; margin-bottom: 6px; line-height: 1.35; }
+    .pain-card p  { font-size: 14px; color: var(--brown-warm); }
+
+    /* ── CHECKLIST ────────────────────────────────────────────── */
+    .checklist {
+      list-style: none;
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    .check-circle {
+      flex: 0 0 22px;
+      width: 22px;
+      height: 22px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .check-circle svg {
+      width: 11px; height: 11px;
+      stroke: white; stroke-width: 2.8; fill: none;
+    }
+
+    /* ── SEASON CALLOUT ───────────────────────────────────────── */
+    .season-callout {
+      background: var(--gold);
+      border-radius: 12px;
+      padding: 22px 20px;
+      margin-top: 36px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .season-callout__icon { font-size: 26px; flex: 0 0 auto; line-height: 1; margin-top: 2px; }
+    .season-callout__text h4 { font-size: 15px; margin-bottom: 6px; color: var(--brown); }
+    .season-callout__text p  { font-size: 14px; color: var(--brown); line-height: 1.6; }
+
+    /* ── PROOF STATS ──────────────────────────────────────────── */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-top: 40px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    @media (min-width: 520px) { .proof-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .proof-stat {
+      padding: 32px 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    @media (min-width: 520px) {
+      .proof-stat { border-bottom: none; border-right: 1px solid rgba(255,255,255,0.08); }
+      .proof-stat:last-child { border-right: none; }
+    }
+    .proof-stat__number {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 46px;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .proof-stat__label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.45;
+      max-width: 160px;
+      margin: 0 auto;
+    }
+
+    /* ── ABOUT ────────────────────────────────────────────────── */
+    .about-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 36px;
+    }
+    @media (min-width: 580px) {
+      .about-layout { flex-direction: row; align-items: flex-start; gap: 36px; }
+    }
+    .about__photo-wrap {
+      flex: 0 0 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .about__photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--green);
+    }
+    .about__name {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--brown);
+      text-align: center;
+    }
+    .about__copy p { margin-bottom: 14px; color: var(--brown-warm); }
+    .about__copy p:last-child { margin-bottom: 0; }
+
+    /* ── BUMP CARDS ───────────────────────────────────────────── */
+    .bump-card {
+      background: var(--white);
+      border: 2px solid var(--gray-light);
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 16px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.15s;
+    }
+    .bump-card:hover { border-color: var(--green); }
+    .bump-card.selected { border-color: var(--green); background: #f3fce8; }
+
+    .bump-checkbox-wrap {
+      flex: 0 0 24px;
+      display: flex;
+      align-items: flex-start;
+      padding-top: 4px;
+    }
+    .bump-checkbox {
+      width: 20px;
+      height: 20px;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 2px solid var(--gray-dark);
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.15s, border-color 0.15s;
+      flex-shrink: 0;
+    }
+    .bump-checkbox:checked {
+      background: var(--green);
+      border-color: var(--green);
+    }
+    .bump-checkbox:checked::after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 0px;
+      width: 10px;
+      height: 7px;
+      border-left: 2.5px solid white;
+      border-bottom: 2.5px solid white;
+      transform: rotate(-45deg);
+    }
+
+    .bump-card__img { flex: 0 0 72px; width: 72px; }
+    .bump-card__img img { width: 72px; height: auto; border-radius: 8px; }
+
+    .bump-card__body { flex: 1; }
+    .bump-card__label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .bump-card__body h4 { font-size: 16px; margin-bottom: 6px; line-height: 1.3; }
+    .bump-card__body p  { font-size: 14px; color: var(--brown-warm); margin-bottom: 8px; }
+    .bump-card__price {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--green);
+    }
+
+    /* ── ORDER SUMMARY / MOCK CART ────────────────────────────── */
+    .order-box {
+      background: var(--white);
+      border: 2px solid var(--gray-light);
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 28px;
+    }
+    .order-box__title {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+    .order-box__sub { font-size: 14px; color: var(--brown-warm); margin-bottom: 20px; }
+
+    .cart-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 10px 0;
+      font-size: 15px;
+      border-bottom: 1px solid var(--gray-light);
+      gap: 12px;
+      transition: opacity 0.2s;
+    }
+    .cart-line:last-of-type { border-bottom: none; }
+    .cart-line--dim { opacity: 0.35; }
+    .cart-line__name  { color: var(--brown-warm); }
+    .cart-line__name strong { color: var(--brown); }
+    .cart-line__note  { font-size: 12px; color: var(--gray-dark); }
+    .cart-line__price { font-weight: 600; color: var(--green); white-space: nowrap; }
+    .cart-line__price--dim { color: var(--gray-dark); }
+
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-top: 2px solid var(--brown);
+      padding-top: 14px;
+      margin-top: 4px;
+      margin-bottom: 20px;
+    }
+    .cart-total-row__label {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 17px;
+    }
+    .cart-total-row__amount {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 24px;
+      color: var(--green);
+    }
+
+    .order-note {
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray-dark);
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* ── SUCCESS STATE ────────────────────────────────────────── */
+    .cart-success {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+    .cart-success__icon { font-size: 56px; margin-bottom: 16px; }
+    .cart-success h3 { margin-bottom: 10px; color: var(--green); }
+    .cart-success p  { font-size: 15px; color: var(--brown-warm); max-width: 400px; margin: 0 auto; }
+
+    /* ── FAQ ──────────────────────────────────────────────────── */
+    .faq-list { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+    .faq-item {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 22px 24px;
+      border: 1px solid var(--gray-light);
+    }
+    .faq-item h4 { font-size: 16px; margin-bottom: 8px; }
+    .faq-item p  { font-size: 15px; color: var(--brown-warm); }
+
+    /* ── FINAL CTA ────────────────────────────────────────────── */
+    .final-cta { padding: 64px 0; text-align: center; }
+    .final-cta h2 { margin-bottom: 12px; }
+    .final-cta p {
+      color: var(--brown-warm);
+      margin-bottom: 32px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────────── */
+    .footer {
+      background: var(--brown);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .footer__logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .footer__logo img { width: 24px; height: 24px; object-fit: contain; }
+    .footer__logo span {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 800;
+      font-size: 17px;
+      color: var(--white);
+    }
+    .footer a { color: rgba(255,255,255,0.55); text-decoration: underline; }
+    .footer__links { margin-bottom: 10px; }
+    .footer__disclaimer { max-width: 560px; margin: 16px auto 0; font-size: 12px; }
+
+    /* ── UTILS ────────────────────────────────────────────────── */
+    .mt-8  { margin-top: 8px; }
+    .mt-12 { margin-top: 12px; }
+    .mt-16 { margin-top: 16px; }
+    .mt-24 { margin-top: 24px; }
+    .mt-32 { margin-top: 32px; }
+    .mt-36 { margin-top: 36px; }
+    .mt-40 { margin-top: 40px; }
+    .mt-48 { margin-top: 48px; }
+    .text-center { text-align: center; }
+    .muted { color: var(--brown-warm); }
+    .small { font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<!-- ── URGENCY BAR ─────────────────────────────────────────────────── -->
+<div class="urgency-bar">
+  🌱 <strong>Spring planting windows open in the coming weeks.</strong> This plan is built around succession timing. The earlier you start, the more your garden produces all year.
+</div>
+
+<!-- ── WORDMARK ────────────────────────────────────────────────────── -->
+<div class="wordmark-bar">
+  <img src="images/seedtime-icon.png" alt="Seedtime">
+  <span class="wordmark-bar__text">Seedtime</span>
+</div>
+
+<!-- ── HERO ───────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__layout">
+
+      <div class="hero__copy">
+        <div class="hero__pre">For home gardeners ready to grow their own food</div>
+        <h1 class="hero__headline">
+          Grow <em>$2,000 Worth of Food</em><br>From Your Backyard This Season
+        </h1>
+        <p class="hero__sub">
+          The exact 23-page plan Paul used to harvest <strong>$2,030.85 in real food</strong> from a 20x15 ft backyard garden. It includes the succession planting system that keeps your garden producing long after everyone else's has stopped. Works even with crop failures built in.
+        </p>
+        <a href="#order" class="btn btn--inline">Get Instant Access for $17</a>
+        <p class="hero__secure-line">
+          <span>🔒</span>
+          <span>Secure checkout &nbsp;·&nbsp; Instant digital delivery</span>
+        </p>
+      </div>
+
+      <div class="hero__product">
+        <!--
+          IMAGE SLOT 1: Replace src with "images/hero-scene.png" after fal.ai generation.
+          Run: python generate_images.py (set FAL_KEY first)
+        -->
+        <img
+          class="hero__product-img"
+          src="images/plug-and-play-icon.png"
+          id="img-hero"
+          alt="$2,000 Plug and Play Garden Plan, 23-page PDF"
+        >
+        <div class="hero__price-tag">
+          <div class="was">Previously free for workshop attendees only</div>
+          <div class="now">$17 today</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PAIN ────────────────────────────────────────────────────────── -->
+<section class="section section--alt">
+  <div class="container">
+    <h2>Sound familiar?</h2>
+    <div class="pain-grid">
+
+      <div class="pain-card">
+        <div class="pain-card__icon">🥀</div>
+        <h4>"My garden is great in May. Dead by July."</h4>
+        <p>You plant in spring, get a few tomatoes, and then nothing. There is no system telling you what comes next.</p>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-card__icon">❓</div>
+        <h4>"I never know what to plant when something finishes."</h4>
+        <p>A bed opens up and you leave it empty. Or you put something in at the wrong time and watch it bolt in a week.</p>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-card__icon">🐛</div>
+        <h4>"Pests and problems wipe me out every year."</h4>
+        <p>You are guessing your way through pest pressure, disease, and bad timing. When one crop fails, the whole season feels like a loss.</p>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-card__icon">📐</div>
+        <h4>"I should be getting way more out of this space."</h4>
+        <p>You have the yard and the time. What is missing is the sequencing that makes a small garden actually produce year-round.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT'S INSIDE ───────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <h2>What is inside the plan</h2>
+    <p class="muted mt-12">
+      This is not a generic planting calendar. It is Paul's personal 23-page succession harvest plan for a real 20x15 ft backyard garden. It documented $2,030.85 in food in a single year.
+    </p>
+
+    <ul class="checklist mt-32">
+      <li>
+        <span class="check-circle"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,9 11,1"/></svg></span>
+        <span><strong>The complete crop succession map.</strong> What to plant in each bed the moment one crop finishes, so you are never leaving production capacity sitting empty.</span>
+      </li>
+      <li>
+        <span class="check-circle"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,9 11,1"/></svg></span>
+        <span><strong>Planting windows and timing for every crop in the plan.</strong> When to start seeds, when to transplant, and when each crop hits harvest so you know what follows it.</span>
+      </li>
+      <li>
+        <span class="check-circle"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,9 11,1"/></svg></span>
+        <span><strong>The continual harvest strategy.</strong> Paul's system for growing something harvestable in every season, not just spring, from the same small backyard space.</span>
+      </li>
+      <li>
+        <span class="check-circle"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,9 11,1"/></svg></span>
+        <span><strong>Honest failure notes.</strong> What went wrong in Paul's garden and how the plan still hit $2,030.85 anyway. The succession system compensates when individual crops fail.</span>
+      </li>
+      <li>
+        <span class="check-circle"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,9 11,1"/></svg></span>
+        <span><strong>Exact layout for a 20x15 ft space.</strong> Bed configuration, plant spacing, and rotation logic you can follow directly or use as a tested framework for your own garden.</span>
+      </li>
+      <li>
+        <span class="check-circle"><svg viewBox="0 0 12 10"><polyline points="1,5 4.5,9 11,1"/></svg></span>
+        <span><strong>Crop-by-crop value breakdown.</strong> Which plants are doing the most work in the $2,000 total, so you can prioritize your own space the same way.</span>
+      </li>
+    </ul>
+
+    <!--
+      IMAGE SLOT 2: Replace src with "images/garden-harvest.png" after fal.ai generation.
+    -->
+    <div style="margin-top:36px;">
+      <img
+        id="img-garden"
+        src="images/pest-cheat-sheet-icon.png"
+        alt="A productive succession garden with a full harvest basket"
+        style="width:100%;max-height:320px;object-fit:cover;border-radius:14px;box-shadow:0 6px 24px rgba(51,43,37,0.12);"
+      >
+    </div>
+
+    <div class="season-callout">
+      <div class="season-callout__icon">🗓️</div>
+      <div class="season-callout__text">
+        <h4>Why now matters</h4>
+        <p>Spring planting windows open in the coming weeks depending on your growing zone. The succession system in this plan is built around those windows. Miss the first one and you lose 4 to 6 weeks of production capacity for the whole year. This plan does its best work when you start it at the beginning of your season.</p>
+      </div>
+    </div>
+
+    <div class="mt-40 text-center">
+      <a href="#order" class="btn btn--inline">Get Instant Access for $17</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROOF ───────────────────────────────────────────────────────── -->
+<section class="section section--dark">
+  <div class="container">
+    <h2>Real results. Real garden.</h2>
+    <p style="color:rgba(255,255,255,0.65);margin-top:12px;">
+      This plan was not written in a spreadsheet. It was grown in a backyard and documented season by season.
+    </p>
+
+    <div class="proof-grid">
+      <div class="proof-stat">
+        <div class="proof-stat__number">$2,031</div>
+        <div class="proof-stat__label">in food grown from one backyard garden in a single year</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-stat__number">4x</div>
+        <div class="proof-stat__label">the average home garden yield, accounting for crop failures</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-stat__number">20 yrs</div>
+        <div class="proof-stat__label">of real farming experience behind the plan (Bountiful Blessings Farm, est. 2006)</div>
+      </div>
+    </div>
+
+    <!--
+      NOTE: The quote block below is PLACEHOLDER COPY synthesized from documented facts.
+      It has NOT been approved by Paul Dysinger. Replace with a real verified quote before launch.
+      Source candidate: ask Paul directly, or pull from workshop transcript/email.
+    -->
+    <!--
+    <div style="background:rgba(255,255,255,0.06);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:24px;margin-top:28px;">
+      <p style="font-size:15px;font-style:italic;color:rgba(255,255,255,0.82);margin-bottom:12px;line-height:1.7;">
+        "I will be honest. Not everything went perfectly. Some crops failed. The plan still hit $2,030.85 because succession planting means you are never relying on any single crop. When one thing does not work out, something else is already coming in behind it. That is the whole system."
+      </p>
+      <div style="font-size:14px;font-weight:600;color:var(--green);">Paul Dysinger, Seedtime</div>
+    </div>
+    -->
+
+  </div>
+</section>
+
+<!-- ── ABOUT ───────────────────────────────────────────────────────── -->
+<section class="section section--alt">
+  <div class="container">
+    <h2>Who made this plan</h2>
+    <div class="about-layout">
+
+      <div class="about__photo-wrap">
+        <img
+          class="about__photo"
+          src="images/paul-dysinger.jpg"
+          alt="Paul Dysinger, Co-Founder of Seedtime"
+        >
+        <div class="about__name">
+          Paul Dysinger<br>
+          <span style="font-weight:400;font-size:12px;color:var(--gray-dark);">Seedtime &amp; Bountiful Blessings Farm</span>
+        </div>
+      </div>
+
+      <div class="about__copy">
+        <p>
+          Paul has been growing food since 2006, when he and his family started Bountiful Blessings Farm. That is nearly 20 years of hands-on, seasons-in-the-dirt growing experience. Not gardening theory. Real food production, year after year.
+        </p>
+        <p>
+          The $2,000 Garden Plan started with a simple question: what is the most food a regular home gardener can grow in a normal backyard, using a system they can actually follow? The answer was succession planting. Grow crops in sequences so there is always something going in when something else comes out.
+        </p>
+        <p>
+          Paul ran his own garden through that system, documented every crop, noted every failure, and finished the year with $2,030.85 in food from a 20x15 ft space. That plan is what you are getting here.
+        </p>
+        <p>
+          He built Seedtime to give every home gardener the same kind of system. You do not have to figure it out the hard way over two decades. You can grow. This plan shows you how.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ORDER + BUMPS ───────────────────────────────────────────────── -->
+<section class="section" id="order">
+  <div class="container">
+    <h2>Build your complete garden toolkit</h2>
+    <p class="muted mt-8">
+      The plan shows you what to grow and when. Add the companion guides below to protect your garden and keep it producing all season long.
+    </p>
+
+    <!-- Bump 1 -->
+    <div class="bump-card" id="bump-card-1" onclick="toggleBump(1)">
+      <div class="bump-checkbox-wrap">
+        <input type="checkbox" class="bump-checkbox" id="bump1" onchange="toggleBump(1)" onclick="event.stopPropagation()">
+      </div>
+      <div class="bump-card__img">
+        <!--
+          IMAGE SLOT 3: Replace src with "images/pest-scene.png" after fal.ai generation.
+        -->
+        <img
+          id="img-pest"
+          src="images/pest-cheat-sheet-icon.png"
+          alt="Ultimate Garden Pest Control Cheat Sheet"
+        >
+      </div>
+      <div class="bump-card__body">
+        <div class="bump-card__label">Add to your order for $27</div>
+        <h4>Ultimate Garden Pest Control Cheat Sheet</h4>
+        <p>Identify the most common garden pests at a glance and know exactly what to do about them, organically. The plan grows your food. This guide protects it.</p>
+        <div class="bump-card__price">$27</div>
+      </div>
+    </div>
+
+    <!-- Bump 2 -->
+    <div class="bump-card" id="bump-card-2" onclick="toggleBump(2)">
+      <div class="bump-checkbox-wrap">
+        <input type="checkbox" class="bump-checkbox" id="bump2" onchange="toggleBump(2)" onclick="event.stopPropagation()">
+      </div>
+      <div class="bump-card__img">
+        <img
+          src="images/immune-boost-icon.png"
+          alt="Ultimate Garden Immune Booster Cheat Sheet"
+        >
+      </div>
+      <div class="bump-card__body">
+        <div class="bump-card__label">Add to your order for $27</div>
+        <h4>Ultimate Garden Immune Booster Cheat Sheet</h4>
+        <p>Keep your plants strong and disease-resistant through the full growing season. Healthy plants produce more and recover faster when conditions get tough.</p>
+        <div class="bump-card__price">$27</div>
+      </div>
+    </div>
+
+    <!-- Order Summary Box -->
+    <div class="order-box">
+      <div class="order-box__title">Your Order</div>
+      <div class="order-box__sub">Secure checkout &nbsp;·&nbsp; Instant digital delivery</div>
+
+      <!-- Cart form -->
+      <div id="cart-form">
+        <div class="cart-line">
+          <span class="cart-line__name"><strong>$2,000 Plug &amp; Play Garden Plan</strong> (23-page PDF)</span>
+          <span class="cart-line__price">$17</span>
+        </div>
+        <div class="cart-line" id="line-bump1">
+          <div>
+            <span class="cart-line__name" id="line-bump1-name">Pest Control Cheat Sheet</span><br>
+            <span class="cart-line__note" id="line-bump1-note">Check the box above to add this</span>
+          </div>
+          <span class="cart-line__price cart-line__price--dim" id="line-bump1-price">+$27</span>
+        </div>
+        <div class="cart-line" id="line-bump2">
+          <div>
+            <span class="cart-line__name" id="line-bump2-name">Garden Immune Booster Cheat Sheet</span><br>
+            <span class="cart-line__note" id="line-bump2-note">Check the box above to add this</span>
+          </div>
+          <span class="cart-line__price cart-line__price--dim" id="line-bump2-price">+$27</span>
+        </div>
+
+        <div class="cart-total-row">
+          <span class="cart-total-row__label">Order total</span>
+          <span class="cart-total-row__amount" id="cart-total">$17</span>
+        </div>
+
+        <button class="btn" onclick="submitCart()">Complete My Order</button>
+        <p class="order-note">🔒 Secure checkout &nbsp;·&nbsp; Instant download</p>
+      </div>
+
+      <!-- Success state -->
+      <div class="cart-success" id="cart-success">
+        <div class="cart-success__icon">🌱</div>
+        <h3>On the way!</h3>
+        <p>Your garden plan is on its way. Check your inbox for your download link in the next few minutes.</p>
+        <p style="margin-top:12px;font-size:14px;color:var(--gray-dark);">(This is a prototype. In production, this connects to ThriveCart.)</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FAQ ─────────────────────────────────────────────────────────── -->
+<section class="section section--alt">
+  <div class="container">
+    <h2>Common questions</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <h4>What size garden does this work for?</h4>
+        <p>The plan is built for a 20x15 ft garden, a size that fits in most suburban backyards. The succession principles inside scale up or down. You can follow it directly or use it as a tested framework for your own layout.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do I need the Seedtime app to use this?</h4>
+        <p>Not at all. The plan is a standalone 23-page PDF. Print it, save it to your phone, or read it on any device. A free Seedtime account pairs well with it if you want to track your garden digitally, but the plan works completely on its own.</p>
+      </div>
+      <div class="faq-item">
+        <h4>I have already started planting. Is it still useful?</h4>
+        <p>Yes. The succession system can be entered at any point in the season. If your spring planting has already started, the plan helps you understand what to put in next and how to keep your beds producing through fall.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Is this for beginners or experienced gardeners?</h4>
+        <p>Both. Beginners get a complete, tested plan to follow step by step. Experienced gardeners get a proven succession system to study and adapt. The honest failure notes are especially valuable if you have tried to plan before and had it fall apart mid-season.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What are the add-ons and do I need them?</h4>
+        <p>The Pest Control and Immune Booster cheat sheets are companion guides available at checkout for $27 each. The garden plan works completely on its own. They are a natural fit if you want practical, at-a-glance references for protecting your plants and keeping them healthy through the season.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ───────────────────────────────────────────────────── -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Your best garden season starts with a plan</h2>
+    <p>
+      Stop guessing what to plant next. Get the exact succession system that produced $2,030.85 from one backyard garden and start your season with a clear path from first planting to final harvest.
+    </p>
+    <a href="#order" class="btn btn--inline">Get the Plan for $17</a>
+    <p class="mt-16 small muted">Instant download &nbsp;·&nbsp; No subscription required</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__logo">
+    <img src="images/seedtime-icon.png" alt="Seedtime">
+    <span>Seedtime</span>
+  </div>
+  <div class="footer__links">
+    <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="#">Terms of Use</a> &nbsp;·&nbsp;
+    <a href="mailto:support@seedtime.us">support@seedtime.us</a>
+  </div>
+  <div>© 2026 Seedtime LLC. All rights reserved.</div>
+  <div class="footer__disclaimer">
+    Results described reflect Paul Dysinger's personal garden documented over one growing season. Individual results will vary based on growing zone, garden size, crop selection, weather, and other factors. The $2,000 Plug &amp; Play Garden Plan is a digital product delivered as a PDF download.
+  </div>
+</footer>
+
+<script>
+  // ── Mock Cart Logic ──────────────────────────────────────────────
+  var BASE_PRICE = 17;
+  var BUMP_PRICE = 27;
+
+  function toggleBump(num) {
+    var checkbox = document.getElementById('bump' + num);
+    var card     = document.getElementById('bump-card-' + num);
+
+    // If the card itself was clicked (not the checkbox), toggle the checkbox
+    if (document.activeElement !== checkbox) {
+      checkbox.checked = !checkbox.checked;
+    }
+
+    var checked = checkbox.checked;
+
+    // Update card styling
+    if (checked) {
+      card.classList.add('selected');
+    } else {
+      card.classList.remove('selected');
+    }
+
+    // Update cart line for this bump
+    var noteLine  = document.getElementById('line-bump' + num + '-note');
+    var priceLine = document.getElementById('line-bump' + num + '-price');
+
+    if (checked) {
+      noteLine.textContent  = 'Added to your order';
+      priceLine.textContent = '+$27';
+      priceLine.classList.remove('cart-line__price--dim');
+      priceLine.classList.add('cart-line__price');
+    } else {
+      noteLine.textContent  = 'Check the box above to add this';
+      priceLine.textContent = '+$27';
+      priceLine.classList.add('cart-line__price--dim');
+      priceLine.classList.remove('cart-line__price');
+    }
+
+    updateTotal();
+  }
+
+  function updateTotal() {
+    var total = BASE_PRICE;
+    if (document.getElementById('bump1').checked) total += BUMP_PRICE;
+    if (document.getElementById('bump2').checked) total += BUMP_PRICE;
+    document.getElementById('cart-total').textContent = '$' + total;
+  }
+
+  function submitCart() {
+    document.getElementById('cart-form').style.display    = 'none';
+    document.getElementById('cart-success').style.display = 'block';
+    // Scroll to success message
+    document.getElementById('cart-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+</script>
+
+</body>
+</html>
